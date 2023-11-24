@@ -1,7 +1,7 @@
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import { InputFields, AddBtn } from './FormInput.styled';
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from 'redux/phonebookSlice';
+import { addContactThunk } from 'redux/operations';
 import { SubmitSchema } from './FormInput.styled';
 import { getContacts } from 'redux/selectors';
 import { nanoid } from 'nanoid';
@@ -22,7 +22,7 @@ export default function FormInput() {
     };
     
     const newContact = data;
-    dispatch(addContact(newContact));
+    dispatch(addContactThunk(newContact));
   };
     
     return(
